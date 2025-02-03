@@ -1,0 +1,21 @@
+# scanner/open_redirect.py or another central location (like a `main.py`)
+
+import logging
+import os
+
+# Create the logs directory if it doesn't exist
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
+# Set up logging to a file
+logging.basicConfig(
+    filename='logs/scanner.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# This will log to the console and file
+logging.getLogger().addHandler(logging.StreamHandler())
+
+logging.info("Scanner started.")
+2025-01-19 12:41:35,914 - INFO - Scanning Open Redirect for http://example.com/login
