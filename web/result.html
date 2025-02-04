@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Scan Results</title>
+</head>
+<body>
+  <h1>Scan Results</h1>
+  
+  <div id="scan-results">
+    <p><strong>URL Scanned:</strong> <span id="url"></span></p>
+    <h2>XSS Vulnerabilities:</h2>
+    <ul id="xss-results"></ul>
+    <h2>SQL Injection Vulnerabilities:</h2>
+    <ul id="sql-results"></ul>
+  </div>
+
+  <script>
+    // Assuming you are passing results from your server as JSON
+    const scanResults = {
+      "url": "https://www.youtube.com/",
+      "xssResults": [
+        "Potential XSS in input/textarea with name: search_query"
+      ],
+      "sqlResults": [
+        "No SQL Injection vulnerability detected at https://www.youtube.com/"
+      ]
+    };
+
+    // Fill in the page with the scan results
+    document.getElementById('url').innerText = scanResults.url;
+    
+    const xssResultsList = document.getElementById('xss-results');
+    scanResults.xssResults.forEach(result => {
+      const li = document.createElement('li');
+      li.innerText = result;
+      xssResultsList.appendChild(li);
+    });
+    
+    const sqlResultsList = document.getElementById('sql-results');
+    scanResults.sqlResults.forEach(result => {
+      const li = document.createElement('li');
+      li.innerText = result;
+      sqlResultsList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
