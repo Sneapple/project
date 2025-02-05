@@ -6,7 +6,7 @@ const scannerRoutes = require('./routes/scannerRoutes');
 const app = express();
 
 // Use Glitch's dynamically assigned port or fallback to 3000
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Middleware
 app.use(express.json());
