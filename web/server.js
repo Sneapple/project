@@ -1,12 +1,9 @@
 const express = require('express');
-const cheerio = require('cheerio');
 const path = require('path');
 const scannerRoutes = require('./routes/scannerRoutes');
 
 const app = express();
-
-// Use Glitch's dynamically assigned port or fallback to 3000
-const PORT = process.env.PORT || 3002;
+const PORT = 5095;
 
 // Middleware
 app.use(express.json());
